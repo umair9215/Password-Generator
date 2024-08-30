@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Password Generator</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        text-decoration: none;
+        list-style-type: none;
+      }
+
+      body {
+        background-color: #f0f2f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      section {
+        min-width: 100vh;
+      }
+      .btn {
+        padding: 10px 25px;
+        border: 1px solid red;
+        color: white;
+        background-color: red;
+        font-weight: bold;
+        border-radius: 2px;
+      }
+      header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        position: relative;
+        padding: 10px;
+        background-color: white;
+        width: 100%;
+      }
+      header .logo {
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        font-weight: bold;
+        color: red;
+        margin-left: 2rem;
+        align-items: center;
+      }
+      header nav {
+        display: flex;
+        justify-content: space-between;
+        margin-right: 3rem;
+      }
+      nav .firstBox {
+        display: flex;
+        justify-content: space-evenly;
+        margin-right: 15rem;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      nav .secondBox {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+      }
+      ul li a {
+        margin: 1rem;
+        font-size: 15px;
+        font-weight: bold;
+        padding: 10px;
+      }
+      ul li a:hover {
+        background-color: red;
+        color: #f0f2f5;
+      }
+      .main {
+        position: relative;
+        top: 20px;
+        left: 50px;
+        border: 2px solid transparent;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        padding: 30px 40px;
+        border-radius: 50px;
+      }
+
+      .output {
+        padding: 50px;
+        border-bottom: 7px solid green;
+        margin-bottom: 1.5rem;
+        box-shadow: 0 0 10px black;
+        border-radius: 10px;
+        background-color: white;
+        overflow: hidden;
+      }
+
+      .btn:active {
+        transform: scale(0.9);
+        transition: all 0.3s ease;
+      }
+      .input {
+        padding: 50px;
+        box-shadow: 0 0 10px;
+        border-radius: 10px;
+        background-color: white;
+      }
+      .input h1 {
+        font-size: 35px;
+        margin-bottom: 1rem;
+      }
+      #output {
+        font-size: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="logo">LastPass</div>
+      <nav>
+        <div class="firstBox">
+          <ul class="navitem">
+            <li><a href="">Home</a></li>
+          </ul>
+          <ul class="navitem">
+            <li><a href="">About</a></li>
+          </ul>
+          <ul class="navitem">
+            <li><a href="">Pricing</a></li>
+          </ul>
+        </div>
+        <div class="secondBox">
+          <ul>
+            <li><a href="">Login</a></li>
+          </ul>
+          <button class="btn">Get LastPass Free</button>
+        </div>
+      </nav>
+    </header>
+
+    <section class="main">
+      <div class="output">
+        <p id="output"></p>
+      </div>
+
+      <div class="input">
+        <h1>Generate Random Password</h1>
+        <button class="btn" onclick="getOutput()">Generate Password</button>
+      </div>
+    </section>
+
+    <script>
+      function getOutput() {
+        let integers =
+          "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        let password = "";
+
+        for (let i = 0; i < 8; i++) {
+          password += integers.charAt(
+            Math.floor(Math.random() * integers.length)
+          );
+        }
+
+        document.getElementById("output").innerHTML = password;
+      }
+    </script>
+  </body>
+</html>
